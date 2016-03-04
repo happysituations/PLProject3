@@ -1,7 +1,7 @@
 /**
  * Created by Happy Situ, Charles Martinez, Connie Wu on 03/04/16.
  */
-
+/**
 var person = function(){ // This line to the line with "}();" creates a Closure.
     // private data
     var data = {            // This is an exmaple of a javaScript Object.
@@ -132,6 +132,7 @@ a1.speak = function(a){ document.writeln(a.run('says') + "<BR>"); }
 document.writeln("<BR>");
 a1.speak(a1);
 a1.speak(socrates);
+**/
 
 $(document).ready(function() {
     $("#accordion").on("click", "h2", function(){
@@ -140,14 +141,14 @@ $(document).ready(function() {
             $(this).next().hide();
         }
         else{
-            $(this).next.show();
+            $(this).next().show();
         }
     });
     $("#add").click(function(){
         var html = "";
         html += "<h2><a href='#'>" + $("#name").val() + "</a></h2>";
         html += "<div><h3>" + $("position").val() + "</h3>";
-        html += "<p>" + $("#description").val() + "</p><div>";
+        html += "<p>" + $("#description").val() + "</p></div>";
         $("#accordion").append(html);
         $("#name").val("");
         $("position").val("");
