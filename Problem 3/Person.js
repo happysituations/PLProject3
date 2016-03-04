@@ -132,3 +132,14 @@ a1.speak = function(a){ document.writeln(a.run('says') + "<BR>"); }
 document.writeln("<BR>");
 a1.speak(a1);
 a1.speak(socrates);
+
+$(document).ready(function(){
+    $("#person_form").click(function(){
+        var cust = $("#person_form");
+        var firstName = $("#first_name");
+        var lastName = $("#last_name");
+    $("button").click(function(){
+        $("")
+    })
+    });
+})
