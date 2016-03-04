@@ -1,11 +1,11 @@
 /**
- * Created by pcannata on 2/20/16.
+ * Created by Happy Situ, Charles Martinez, Connie Wu on 03/04/16.
  */
 
-var substance = function(){ // This line to the line with "}();" creates a Closure.
+var person = function(){ // This line to the line with "}();" creates a Closure.
     // private data
     var data = {            // This is an exmaple of a javaScript Object.
-        name:'Substance',
+        name:'person',
         $name: function(n){
             data.memo += 1; // This, and the object entry "memo: 0" below is an example of Memoization where a function can
                             // keep track of some prior behavior.
@@ -13,7 +13,7 @@ var substance = function(){ // This line to the line with "}();" creates a Closu
         memo: 0,
         dob: new Date('January 1, 1980'),
         $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm a substance",
+        says:"Hello, I'm a person",
         $says: function(n){data.memo += 1; data.says = n},
         quality: 'Virtue',
         $quality: function(n){data.memo += 1; data.quality = n}
@@ -27,7 +27,7 @@ var substance = function(){ // This line to the line with "}();" creates a Closu
                             // syntax obscures the language's true nature. It is the worst of both worlds.
 
     // public data
-    f.sname = 'Substance'
+    f.sname = 'person'
     f.run = function (e) {
         return data[e];
     };
@@ -35,15 +35,15 @@ var substance = function(){ // This line to the line with "}();" creates a Closu
     return f;
 }();                        // This is an example of Function Application.
 
-var animal = function(p){
+var employee = function(p){
     // private data
     var data = {
-        name:'Animal',
+        name:'employee',
         $name: function(n){data.memo += 1; data.name = n},
         memo: 0,
         dob: new Date('January 1, 1990'),
         $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm an animal",
+        says:"Hello, I'm an employee",
         $says: function(n){data.memo += 1; data.says = n}
     };
 
@@ -52,7 +52,7 @@ var animal = function(p){
     f = new F();
 
     // public data
-    f.aname = 'Animal'
+    f.aname = 'employee'
     f.run = function (e) {
         var r = data[e];
         if(r === undefined) return F.prototype.run(e);
@@ -60,7 +60,7 @@ var animal = function(p){
     };
 
     return f;
-}(substance);
+}(person);
 
 var cat = function(p){
     // private data
@@ -87,17 +87,17 @@ var cat = function(p){
     };
 
     return f;
-}(animal);
+}(employee);
 
-var human = function(p){
+var customer = function(p){
     // private data
     var data = {
-        name:'Human',
+        name:'customer',
         $name: function(n){data.memo += 1; data.name = n},
         memo: 0,
         dob: new Date('January 1, 2010'),
         $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm a human",
+        says:"Hello, I'm a customer",
         $says: function(n){data.memo += 1; data.says = n}
     };
 
@@ -106,7 +106,7 @@ var human = function(p){
     f = new F();
 
     // public data
-    f.hname = 'Human'
+    f.hname = 'customer'
     f.run = function (e) {
         var r = data[e];
         if(r === undefined) return F.prototype.run(e);
@@ -115,9 +115,9 @@ var human = function(p){
     f.age = (new Date()).getFullYear() - f.run('dob').getFullYear();
 
     return f;
-}(animal);
+}(employee);
 
-var a1 = Object.create(animal);
+var a1 = Object.create(employee);
 
 document.writeln(Object.getPrototypeOf(a1) + "<BR>");
 document.writeln(a1.sname + "<BR>");
@@ -135,7 +135,7 @@ document.writeln(myCat.run('quality') + "<BR>");
 myCat.run('$name')('myCat');
 document.writeln(myCat.run('name') + "<BR>");
 
-var socrates = Object.create(human);
+var socrates = Object.create(customer);
 
 document.writeln("<BR>");
 document.writeln(Object.getPrototypeOf(socrates) + "<BR>");
