@@ -1,19 +1,77 @@
-<aside>
-    <h2>Add an employee</h2>
-    <label for="name">Name:</label>
-    <input type ="text" id="name" name="name"><br>
-    <label for="position">Position:</label>
-    <input type="text" id="position" name="position"><br>
-    <label for="description">Description:</label>
-    <textarea id ="description" name="description"></textarea><br>
-    <label>&nbsp;</label>
-    <input type="button" id="add" name="add" value="Add Employee">
-</aside>
-<main id="accordion">
-    <h1>Employee List</h1>
-    <h2><a href='#'>""</a></h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Tester App</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="Person.js"></script>
+</head>
+
+<body>
+<main id="coe">
+    <h1>Welcome to the Person Tester Application</h1>
+    <h2>Customer</h2>
     <div>
-        <h3>""</h3>
-        <p>""</p>
+        <p>If you would like to create a customer, please click on the link below</p>
     </div>
+
+    <div class="hide">
+        <p>
+            <label for="firstc">Enter First Name:</label>
+            <input type="text" id="firstc">
+            <span id="firstc_error">*</span><br>
+
+
+            <label for="lastc">Enter Last Name:</label>
+            <input type="text" id="lastc">
+            <span id="lastc_error">*</span><br>
+
+
+            <label for="emailc">Enter email address:</label>
+            <input type="text" id="emailc">
+            <span id="emailc_error">*</span><br>
+
+            <label for="customer">Customer number:</label>
+            <input type="text" id="customer">
+            <span id="customer_error">*</span><br>
+
+            <label>&nbsp;</label>
+            <input type="button" id="cc" value="Create Customer"><br>
+        </p>
+    </div>
+    <a href="#">Click here</a>
+
+    <h2>Employee</h2>
+    <div><p>If you would like to create an employee, please click on the link below</p>
+    </div>
+    <div class="hide">
+        <p>
+
+            <label for="firste">Enter First Name:</label>
+            <input type="text" id="firste">
+            <span id="firset_error">*</span><br>
+
+
+            <label for="laste">Enter Last Name:</label>
+            <input type="text" id="laste">
+            <span id="laste_error">*</span><br>
+
+
+            <label for="emaile">Enter email address:</label>
+            <input type="text" id="emaile">
+            <span id="emaile_error">*</span><br>
+
+            <label for="social">Social security number:</label>
+            <input type="text" id="social">
+            <span id="social_error">*</span><br>
+
+            <label>&nbsp;</label>
+            <input type="button" id="ce" value="Create Employee"><br>
+        </p>
+    </div>
+    <a href="#">Click here</a>
+
 </main>
+</body>
+</html>
