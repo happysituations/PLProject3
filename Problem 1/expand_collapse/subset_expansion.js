@@ -3,13 +3,14 @@ $(document).ready(function(){
         $(this).toggleClass("hide");
         if($(this).attr("class") != "hide"){
             $(this).prev().hide();
-            $(this).text("Show More");
-            $(this).addClass("hide");
+            $(this).text("Show more");
         }
         else{
             $(this).prev().show();
-            $(this).text("Show Less");
+            $(this).text("Show less");
             $(this).removeClass("hide");
         }
+        $(this).addClass("hide");
     });
+
 });
