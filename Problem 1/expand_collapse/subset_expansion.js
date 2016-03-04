@@ -4,10 +4,12 @@ $(document).ready(function(){
         if($(this).attr("class") != "hide"){
             $(this).prev().hide();
             $(this).text("Show More");
+            $(this).addClass("hide");
         }
         else{
             $(this).prev().show();
             $(this).text("Show Less");
+            $(this).removeClass("hide");
         }
     });
 });
