@@ -1,38 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script type=""text/javascript" src="Person.js"></script>
-    <title>Title</title>
-</head>
-<body>
-    <main>
-       <h1> Welcome to the Person Tester application </h1>
-       <form id = "person_form" name"person_form"
-           action="index.html" method="get">
-       <label for="first_name">Enter first name: </label>
-       <input type="text" id="first_name">
-       <span>*</span><br>
-
-       <label for="last_name">Enter last name: </label>
-       <input type="text" id="last_name">
-       <span>*</span><br>
-
-       <label for="email_address">Enter email address: </label>
-       <input type="text" id="email_address">
-       <span>*</span><br>
-
-       <label for="customer_number">Customer number: </label>
-       <input type="text" id="customer_number">
-       <span>*if you are a customer, please enter your customer number, otherwise leave this space blank</span><br>
-
-       <label for="social_security">Social security number: </label>
-       <input type="text" id="social_security">
-       <span>*if you are a employee, please enter your social security number, otherwise leave this space blank</span><br>
-
-       <label>&nbsp;</label>
-       <input type="button" id="person_form" value="Create customer or employee">
-       </form>
-    </main>
-</body>
-</html>
+<aside>
+    <h2>Add an employee</h2>
+    <label for="name">Name:</label>
+    <input type ="text" id="name" name="name"><br>
+    <label> for="position">Position:</label>
+    <input type="text" id="position" name ="position"><br>
+    <label for="description">Description:</label>
+    <textarea id = "description" name="description"></textarea><br>
+    <label>&nbsp;</label>
+    <input type="button" id="add" value=""Add Employee">
+</aside>
+<main id=""accordion">
+    <h1>Employee List</h1>
+</main>
