@@ -62,33 +62,6 @@ var employee = function(p){
     return f;
 }(person);
 
-var cat = function(p){
-    // private data
-    var data = {
-        name:'Cat',
-        $name: function(n){data.memo += 1; data.name = n},
-        memo: 0,
-        dob: new Date('January 1, 2000'),
-        $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm a cat",
-        $says: function(n){data.memo += 1; data.says = n}
-    };
-
-    var F = function(){};
-    F.prototype = p;
-    f = new F();
-
-    // public data
-    f.cname = 'Cat'
-    f.run = function (e) {
-        var r = data[e];
-        if(r === undefined) return F.prototype.run(e);
-        else return r;
-    };
-
-    return f;
-}(employee);
-
 var customer = function(p){
     // private data
     var data = {
@@ -125,16 +98,6 @@ document.writeln(a1.run('says') + "<BR>");
 a1.run('$name')('a1');
 document.writeln(a1.run('name') + "<BR>");
 
-var myCat = Object.create(cat);
-
-document.writeln("<BR>");
-document.writeln(Object.getPrototypeOf(myCat) + "<BR>");
-document.writeln(myCat.sname + "<BR>");
-document.writeln(myCat.run('says') + "<BR>");
-document.writeln(myCat.run('quality') + "<BR>");
-myCat.run('$name')('myCat');
-document.writeln(myCat.run('name') + "<BR>");
-
 var socrates = Object.create(customer);
 
 document.writeln("<BR>");
@@ -168,5 +131,4 @@ document.writeln("Socrates memo is: " + socrates.run('memo') + "<BR>");
 a1.speak = function(a){ document.writeln(a.run('says') + "<BR>"); }
 document.writeln("<BR>");
 a1.speak(a1);
-a1.speak(myCat);
 a1.speak(socrates);
