@@ -162,10 +162,12 @@ $(document).ready(function(){
                 var cust = Object.create(customer);
                 cust.firstName = fc;
                 cust.lastName = lc;
-                //rest
+                cust.email = ec;
+                cust.customerNum = c;
                 $('body').append(cust.firstName+"<br>");
-                //rest
-                //repeat for employee
+                $('body').append(cust.lastName+"<br>");
+                $('body').append(cust.email+"<br>");
+                $('body').append(cust.customerNum+"<br>");
             }
         } // end function
     ); // end click
@@ -176,7 +178,6 @@ $(document).ready(function(){
     $("#ce").click(
         function() {
             var emailAddress1 = $("#email_address1").val();
-            var emailAddress2 = $("#email_address2").val();
             var isValid = true;
 
             // validate the first email address
@@ -185,17 +186,6 @@ $(document).ready(function(){
                 isValid = false;
             } else {
                 $("#email_address1_error").text("");
-            }
-
-            // validate the second email address
-            if (emailAddress2 == "") {
-                $("#email_address2_error").text("This field is required.");
-                isValid = false;
-            } else if (emailAddress1 !== emailAddress2) {
-                $("#email_address2_error").text("This entry must equal first entry.");
-                isValid = false;
-            } else {
-                $("#email_address2_error").text("");
             }
 
             // validate the first name entry
@@ -209,7 +199,15 @@ $(document).ready(function(){
 
             // submit the form if all entries are valid
             if (isValid) {
-                $("#email_form").submit();
+                var employee = Object.create(employee);
+                employee.firstName = fc;
+                employee.lastName = lc;
+                employee.email = ec;
+                employee.ssn = c;
+                $('body').append(employee.firstName+"<br>");
+                $('body').append(employee.lastName+"<br>");
+                $('body').append(employee.email+"<br>");
+                $('body').append(employee.ssn+"<br>");
             }
         } // end function
     ); // end click
