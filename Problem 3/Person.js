@@ -1,18 +1,9 @@
 var person = function(){ // This line to the line with "}();" creates a Closure.
     // private data
     var data = {            // This is an exmaple of a javaScript Object.
-        name:'person',
-        $name: function(n){
-            data.memo += 1; // This, and the object entry "memo: 0" below is an example of Memoization where a function can
-                            // keep track of some prior behavior.
-            data.name = n },
-        memo: 0,
-        dob: new Date('January 1, 1980'),
-        $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm a person",
-        $says: function(n){data.memo += 1; data.says = n},
-        quality: 'Virtue',
-        $quality: function(n){data.memo += 1; data.quality = n}
+        firstName: "",
+        lastName: "",
+        email: "",
     };
 
     var F = function(){};
@@ -23,7 +14,7 @@ var person = function(){ // This line to the line with "}();" creates a Closure.
                             // syntax obscures the language's true nature. It is the worst of both worlds.
 
     // public data
-    f.sname = 'person'
+    f.pname = 'person'
     f.run = function (e) {
         return data[e];
     };
@@ -34,13 +25,7 @@ var person = function(){ // This line to the line with "}();" creates a Closure.
 var customer = function(p){
     // private data
     var data = {
-        name:'customer',
-        $name: function(n){data.memo += 1; data.name = n},
-        memo: 0,
-        dob: new Date('January 1, 1990'),
-        $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm an customer",
-        $says: function(n){data.memo += 1; data.says = n}
+        customerNum: ""
     };
 
     var F = function(){};
@@ -48,7 +33,7 @@ var customer = function(p){
     f = new F();
 
     // public data
-    f.aname = 'customer'
+    f.cname = 'customer'
     f.run = function (e) {
         var r = data[e];
         if(r === undefined) return F.prototype.run(e);
@@ -61,13 +46,7 @@ var customer = function(p){
 var employee = function(p){
     // private data
     var data = {
-        name:'employee',
-        $name: function(n){data.memo += 1; data.name = n},
-        memo: 0,
-        dob: new Date('January 1, 2010'),
-        $dob: function(n){data.memo += 1; data.dob = n},
-        says:"Hello, I'm a employee",
-        $says: function(n){data.memo += 1; data.says = n}
+        ssn: ""
     };
 
     var F = function(){};
@@ -75,17 +54,16 @@ var employee = function(p){
     f = new F();
 
     // public data
-    f.hname = 'employee'
+    f.ename = 'employee'
     f.run = function (e) {
         var r = data[e];
         if(r === undefined) return F.prototype.run(e);
         else return r;
     };
-    f.age = (new Date()).getFullYear() - f.run('dob').getFullYear();
 
     return f;
-}(customer);
-
+}(person);
+/*
 var a1 = Object.create(customer);
 
 document.writeln(Object.getPrototypeOf(a1) + "<BR>");
@@ -129,7 +107,7 @@ a1.speak = function(a){ document.writeln(a.run('says') + "<BR>"); }
 document.writeln("<BR>");
 a1.speak(a1);
 a1.speak(socrates);
-
+*/
 $(document).ready(function(){
     $("#coe a").click(function(){
         $(this).toggleClass("hide");
@@ -181,7 +159,13 @@ $(document).ready(function(){
 
             // submit the form if all entries are valid
             if (isValid) {
-                $('body').append(fc);
+                var cust = Object.create(customer);
+                cust.firstName = fc;
+                cust.lastName = lc;
+                //rest
+                $('body').append(cust.firstName+"<br>");
+                //rest
+                //repeat for employee
             }
         } // end function
     ); // end click
