@@ -49,19 +49,19 @@ var employee = function(p){
         ssn: ""
     };
 
-    var F = function(){};
-    F.prototype = p;
-    f = new F();
+    var A = function(){};
+    A.prototype = p;
+    a = new A();
 
     // public data
-    f.ename = 'employee'
-    f.run = function (e) {
+    a.ename = 'employee'
+    a.run = function (e) {
         var r = data[e];
-        if(r === undefined) return F.prototype.run(e);
+        if(r === undefined) return A.prototype.run(e);
         else return r;
     };
 
-    return f;
+    return a;
 }(person);
 /*
 var a1 = Object.create(customer);
@@ -112,7 +112,6 @@ $(document).ready(function(){
     $("#coe a").click(function(){
         $(this).toggleClass("hide");
         if($(this).attr("class") != "hide"){
-
             $(this).prev().hide();
         }
         else{
@@ -164,50 +163,66 @@ $(document).ready(function(){
                 cust.lastName = lc;
                 cust.email = ec;
                 cust.customerNum = c;
-                $('body').append(cust.firstName+"<br>");
-                $('body').append(cust.lastName+"<br>");
-                $('body').append(cust.email+"<br>");
-                $('body').append(cust.customerNum+"<br>");
+                $('body').append("You entered: <br>");
+                $('body').append("Name: " + cust.firstName+ " " + cust.lastName+"<br>");
+                $('body').append("Email: "+cust.email+"<br>");
+                $('body').append("Customer number: "+cust.customerNum+"<br>");
+                $('body').append("<br>");
             }
         } // end function
     ); // end click
-    $("#email_address1").focus();
-
 
 
     $("#ce").click(
         function() {
-            var emailAddress1 = $("#email_address1").val();
-            var isValid = true;
+            var fe = $("#firste").val();
+            var le = $("#laste").val();
+            var ee = $("#emaile").val();
+            var s = $("#social").val();
+            var valid = true;
 
             // validate the first email address
-            if (emailAddress1 == "") {
-                $("#email_address1_error").text("This field is required.");
-                isValid = false;
+            if (fe == "") {
+                $("#firste_error").text("This field is required.");
+                valid = false;
             } else {
-                $("#email_address1_error").text("");
+                $("#firste_error").text("");
             }
 
-            // validate the first name entry
-            if ($("#first_name").val() == "") {
-                $("#first_name_error").text("This field is required.");
-                isValid = false;
+            if (le == "") {
+                $("#laste_error").text("This field is required.");
+                valid = false;
+            } else {
+                $("#laste_error").text("");
             }
-            else {
-                $("#first_name_error").text("");
+
+            if (ee == "") {
+                $("#emaile_error").text("This field is required.");
+                valid = false;
+            } else {
+                $("#emaile_error").text("");
+            }
+
+            if (s == "") {
+                $("#social_error").text("This field is required.");
+                valid = false;
+            } else{
+                $("#social_error").text("");
             }
 
             // submit the form if all entries are valid
-            if (isValid) {
-                var employee = Object.create(employee);
-                employee.firstName = fc;
-                employee.lastName = lc;
-                employee.email = ec;
-                employee.ssn = c;
-                $('body').append(employee.firstName+"<br>");
-                $('body').append(employee.lastName+"<br>");
-                $('body').append(employee.email+"<br>");
-                $('body').append(employee.ssn+"<br>");
+            if (valid) {
+
+                var emp = Object.create(employee);
+                emp.firstName = fe;
+                emp.lastName = le;
+                emp.email = ee;
+                emp.ssn = s;
+                $('body').append("You entered: <br>");
+                $('body').append("Name: " + emp.firstName+ " " + emp.lastName+"<br>");
+                $('body').append("Email: "+emp.email+"<br>");
+                $('body').append("Social security number: "+emp.ssn+"<br>");
+                $('body').append("<br>");
             }
         } // end function
     ); // end click
