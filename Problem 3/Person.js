@@ -7,11 +7,7 @@ var person = function(){ // This line to the line with "}();" creates a Closure.
     };
 
     var F = function(){};
-    f = new F();            // This is an example of the conflicted nature of JavaScript.
-                            // In the words of Douglas Crockford, "JavaScript itself is not confident in its prototypal nature,
-                            // so it offers an object-making syntax that is reminiscent of the classical oo languages. Few
-                            // classical progrmmers found prototypal inheritance to be acceptable and classically inspired
-                            // syntax obscures the language's true nature. It is the worst of both worlds.
+    f = new F();
 
     // public data
     f.pname = 'person'
