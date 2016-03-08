@@ -81,7 +81,7 @@ $(document).ready(function(){
             var c = $("#customer").val();
             var isValid = true;
 
-            // validate the first email address
+            // validate
             if (fc == "") {
                 $("#firstc_error").text("This field is required.");
                 isValid = false;
@@ -110,7 +110,6 @@ $(document).ready(function(){
                 $("#customer_error").text("");
             }
 
-            // submit the form if all entries are valid
             if (isValid) {
                 var cust = Object.create(customer);
                 cust.firstName = fc;
@@ -122,7 +121,15 @@ $(document).ready(function(){
                 $('body').append("Email: "+cust.email+"<br>");
                 $('body').append("Customer number: "+cust.customerNum+"<br>");
                 $('body').append("<br>");
+
+                document.getElementById("firstc").value = "";
+                document.getElementById("lastc").value = "";
+                document.getElementById("emailc").value = "";
+                document.getElementById("customer").value = "";
+
             }
+            fc.style.visibility = "hidden";
+            textInput.value = "";
         } // end function
     ); // end click
 
@@ -135,7 +142,7 @@ $(document).ready(function(){
             var s = $("#social").val();
             var valid = true;
 
-            // validate the first email address
+            // validate
             if (fe == "") {
                 $("#firste_error").text("This field is required.");
                 valid = false;
@@ -177,6 +184,11 @@ $(document).ready(function(){
                 $('body').append("Email: "+emp.email+"<br>");
                 $('body').append("Social security number: "+emp.ssn+"<br>");
                 $('body').append("<br>");
+
+                document.getElementById("firste").value = "";
+                document.getElementById("laste").value = "";
+                document.getElementById("emaile").value = "";
+                document.getElementById("social").value = "";
             }
         } // end function
     ); // end click
