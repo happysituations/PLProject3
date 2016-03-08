@@ -63,59 +63,17 @@ var employee = function(p){
 
     return a;
 }(person);
-/*
-var a1 = Object.create(customer);
 
-document.writeln(Object.getPrototypeOf(a1) + "<BR>");
-document.writeln(a1.sname + "<BR>");
-document.writeln(a1.run('says') + "<BR>");
-a1.run('$name')('a1');
-document.writeln(a1.run('name') + "<BR>");
-
-
-var socrates = Object.create(employee);
-
-document.writeln("<BR>");
-document.writeln(Object.getPrototypeOf(socrates) + "<BR>");
-document.writeln(socrates.sname + "<BR>");
-document.writeln(socrates.run('says') + "<BR>");
-document.writeln(socrates.run('quality') + "<BR>");
-socrates.run('$name')('socrates');
-socrates.run('$says')('I am Socrates.');
-document.writeln(socrates.run('says') + "<BR>");
-document.writeln(socrates.age + "<BR>");
-
-// View local properties.
-document.writeln("<BR>" + "Local properties are: <BR>");
-for (var key in Object.getPrototypeOf(socrates)) {
-    if (Object.getPrototypeOf(socrates).hasOwnProperty(key)) {
-        document.writeln('socrates: ' + key + " -> " + Object.getPrototypeOf(socrates)[key] + "<BR>");
-    }
-}
-
-// View local and inherited properties.
-document.writeln("<BR>" + "Local and inherited properties are: <BR>");
-for (var key in Object.getPrototypeOf(socrates)) {
-    document.writeln('socrates: ' + key + " -> " + Object.getPrototypeOf(socrates)[key] + "<BR>");
-}
-
-document.writeln("<BR>");
-document.writeln("Socrates memo is: " + socrates.run('memo') + "<BR>");
-
-// Polymorphism.
-a1.speak = function(a){ document.writeln(a.run('says') + "<BR>"); }
-document.writeln("<BR>");
-a1.speak(a1);
-a1.speak(socrates);
-*/
 $(document).ready(function(){
     $("#coe a").click(function(){
         $(this).toggleClass("hide");
         if($(this).attr("class") != "hide"){
             $(this).prev().hide();
+            $(this).text("Click here");
         }
         else{
             $(this).prev().show();
+            $(this).text("Show less");
         }
     });
 
